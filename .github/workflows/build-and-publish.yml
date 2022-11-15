@@ -34,23 +34,23 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: ./udagram-api-feed
-          tags: ifecodev/udagram-api-feed:v3
+          tags: ifecodev/udagram-api-feed:v4
           push: ${{ github.ref == 'refs/heads/main' }}
-      # - name: Build image fontend
-      #   uses: docker/build-push-action@v3
-      #   with:
-      #     context: ./udagram-frontend
-      #     tags: ifecodev/udagram-frontend:v2
-      #     push: ${{ github.ref == 'refs/heads/main' }}
-      # - name: Build image user
-      #   uses: docker/build-push-action@v3
-      #   with:
-      #     context: ./udagram-api-user
-      #     tags: ifecodev/udagram-api-user:v2
-      #     push: ${{ github.ref == 'refs/heads/main' }}
-      # - name: Build image reverse proxy
-      #   uses: docker/build-push-action@v3
-      #   with:
-      #     context: ./udagram-reverseproxy
-      #     tags: ifecodev/udagram-reverseproxy:v2
-      #     push: ${{ github.ref == 'refs/heads/main' }}
+      - name: Build image fontend
+        uses: docker/build-push-action@v3
+        with:
+          context: ./udagram-frontend
+          tags: ifecodev/udagram-frontend:v4
+          push: ${{ github.ref == 'refs/heads/main' }}
+      - name: Build image user
+        uses: docker/build-push-action@v3
+        with:
+          context: ./udagram-api-user
+          tags: ifecodev/udagram-api-user:v4
+          push: ${{ github.ref == 'refs/heads/main' }}
+      - name: Build image reverse proxy
+        uses: docker/build-push-action@v3
+        with:
+          context: ./udagram-reverseproxy
+          tags: ifecodev/udagram-reverseproxy:v4
+          push: ${{ github.ref == 'refs/heads/main' }}

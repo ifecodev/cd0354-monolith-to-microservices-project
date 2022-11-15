@@ -17,7 +17,7 @@ spec:
     spec: 
       containers:
       -   name:  udagram-api-reverseproxy
-          image: ifecodev/udagram-reverseproxy:v1
+          image: ifecodev/udagram-reverseproxy:v4
           imagePullPolicy: Always          
           resources:
             requests:

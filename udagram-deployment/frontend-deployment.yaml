@@ -18,6 +18,6 @@ spec:
     spec: 
       containers:
         - name:  udagram-frontend
-          image: ifecodev/udagram-frontend:v1
+          image: ifecodev/udagram-frontend:v4
           ports: 
-          - containerPort: 8100
+          - containerPort: 80
