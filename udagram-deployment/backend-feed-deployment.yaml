@@ -18,42 +18,14 @@ spec:
     spec: 
       containers:
         - name:  udagram-api-feed
-          image: ifecodev/udagram-api-feed:v1
-          ports: 
+          image: ifecodev/udagram-api-feed:2
+          # command: [ "/bin/sh", "-c", "env" ]
+          envFrom:
+            - secretRef:
+                name: env-secret
+          envFrom:
+            - configMapRef:
+                name: env-config
+        
+          ports:
           - containerPort: 8080
-          env:
-          - name: URL
-            valueFrom:
-              configMapKeyRef:
-                name: env-config
-                key: URL
-          - name: AWS_BUCKET
-            valueFrom:
-              configMapKeyRef:
-                name: env-config
-                key: AWS_BUCKET
-          - name: AWS_PROFILE
-            valueFrom:
-              configMapKeyRef:
-                name: env-config
-                key: AWS_PROFILE
-          - name: AWS_REGION
-            valueFrom:
-              configMapKeyRef:
-                name: env-config
-                key: AWS_REGION
-          - name: JWT_SECRET
-            valueFrom:
-              configMapKeyRef:
-                name: env-config
-                key: JWT_SECRET
-          - name: POSTGRESS_DB
-            valueFrom:
-              configMapKeyRef:
-                name: env-config
-                key: POSTGRESS_DB
-          - name: POSTGRESS_HOST
-            valueFrom:
-              configMapKeyRef:
-                name: env-config
-                key: POSTGRESS_HOST
