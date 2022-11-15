@@ -34,7 +34,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: ./udagram-api-feed
-          tags: ifecodev/udagram-api-feed:v4
+          tags: ifecodev/udagram-api-feed:v5
           push: ${{ github.ref == 'refs/heads/main' }}
       - name: Build image fontend
         uses: docker/build-push-action@v3
@@ -54,3 +54,4 @@ jobs:
           context: ./udagram-reverseproxy
           tags: ifecodev/udagram-reverseproxy:v4
           push: ${{ github.ref == 'refs/heads/main' }}
+  

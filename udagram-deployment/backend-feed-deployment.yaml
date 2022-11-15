@@ -15,10 +15,18 @@ spec:
       name: backend-feed
       labels: 
         app: backend-feed
-    spec: 
+    spec:
+      volumes:
+            - name: aws-secret
+              secret:
+                secretName: aws-secret   
       containers:
         - name:  udagram-api-feed
           image: ifecodev/udagram-api-feed:v4
+          volumeMounts:
+              - name: aws-secret
+                mountPath: "/root/.aws/"
+                readOnly: true 
           env:
             - name: URL
               valueFrom:
@@ -64,6 +72,6 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: env-secret
-                  key: POSTGRES_USERNAME          
+                  key: POSTGRES_USERNAME            
           ports:
             - containerPort: 8080
